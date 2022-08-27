@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributo dropzone</title>
+    <style>
+
+        /*seletor caixa*/
+        .caixa{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+        }
+        /*Seletor drop*/
+        .drop{
+            width: 200px;
+            height: 200px;
+            border: crimson 2px solid;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Atributo dropzone do HTML 5 - S01E08</h1>
+    <p>hcode</p>
+    <!--1 div draggable-->
+
+    <div id="c1" class="caixa" draggable="true"></div>
+
+    <!--2 div dropzone tirar uma copiar o elemento mover de uma caixa-->
+    <div id="c2" class="drop" dropzone="copy" ></div>
+    <!--precisamos de JavaScript para copiar o elemento porque html5 não esta abilitado! -->
+
+    <!--seletor cod.JavaScript-->
+    <script>
+    const caixas = document.querySelectorAll('.caixa');
+
+    const dropzone = document.querySelector('[drozone]');
+    
+    caixas.forEach(caixaEl => {
+            caixaEl.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text', e.target.id)
+                console.log(e.target.id);
+            } );
+    })
+    dropzone.addEventListener('drop', e => {
+        e,preventDefault
+    });
+
+    dropzone.addEventListener('drop', e => {
+        console.log('drop!!!');
+
+    });
+    </script>
+</body>
+</html>
